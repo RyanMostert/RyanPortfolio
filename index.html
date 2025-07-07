@@ -3,111 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ryan Mostert - Minimal Portfolio</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <title>Ryan Mostert - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <style>
     body {
-      font-family: 'Inter', Arial, sans-serif;
       margin: 0;
-      background: #fafbfc;
-      color: #222;
-      line-height: 1.6;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #f8f8f8;
+      min-height: 100vh;
     }
-    header {
+    .hero {
+      background: linear-gradient(120deg, #ff512f 0%, #dd2476 100%);
+      padding: 60px 20px 40px 20px;
       text-align: center;
-      padding: 48px 16px 24px 16px;
+      position: relative;
+      overflow: hidden;
     }
-    header img {
-      width: 110px;
-      height: 110px;
+    .hero::before {
+      content: '';
+      position: absolute;
+      left: -100px;
+      top: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #fff17655 0%, transparent 80%);
+      z-index: 0;
+    }
+    .hero img {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      margin-bottom: 18px;
-      border: 2px solid #eee;
+      border: 5px solid #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      z-index: 1;
+      position: relative;
     }
-    h1 {
-      font-size: 2.2rem;
-      margin: 0 0 8px 0;
-      font-weight: 700;
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      margin: 0 0 10px 0;
+      letter-spacing: 2px;
+      z-index: 1;
+      position: relative;
     }
-    .subtitle {
-      color: #888;
-      font-size: 1.1rem;
-      margin-bottom: 18px;
+    .hero p {
+      font-size: 1.2rem;
+      margin: 0 0 20px 0;
+      z-index: 1;
+      position: relative;
     }
-    .social {
-      margin-bottom: 18px;
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.7rem;
+      transition: color 0.2s, transform 0.2s;
+      z-index: 1;
+      position: relative;
     }
-    .social a {
-      color: #222;
-      margin: 0 8px;
-      font-size: 1.3rem;
-      text-decoration: none;
-      transition: color 0.2s;
+    .social-icons a:hover {
+      color: #ffd700;
+      transform: scale(1.2) rotate(-10deg);
     }
-    .social a:hover {
-      color: #007bff;
-    }
-    main {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 16px 48px 16px;
-    }
-    section {
-      margin-bottom: 32px;
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(30,60,114,0.95);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      padding: 36px;
+      position: relative;
+      z-index: 2;
     }
     h2 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      color: #007bff;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    ul {
-      padding-left: 18px;
-      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #ff512f;
+      margin-top: 0;
+      letter-spacing: 1px;
+      font-size: 1.5rem;
     }
     .skills-list, .projects-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 12px;
       list-style: none;
       padding: 0;
     }
     .skills-list li, .projects-list li {
-      background: #f3f4f6;
-      border-radius: 6px;
-      padding: 6px 14px;
-      font-size: 0.98rem;
+      background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 1rem;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .skills-list li:hover, .projects-list li:hover {
+      transform: scale(1.08) rotate(-2deg);
+      background: linear-gradient(90deg, #fff176 0%, #ff512f 100%);
+      color: #222;
+    }
+    .project-card {
+      background: rgba(255,255,255,0.07);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      padding: 18px;
+      margin-bottom: 18px;
+      transition: box-shadow 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 32px rgba(255,81,47,0.18);
+      background: rgba(255,255,255,0.13);
     }
     .project-link {
-      color: #007bff;
+      color: #ffd700;
       text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
     }
     .project-link:hover {
+      color: #fff176;
       text-decoration: underline;
     }
+    .fun-facts {
+      font-style: italic;
+      color: #ffd700;
+      margin-top: 12px;
+    }
+    .wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: url('https://svgshare.com/i/11hY.svg') repeat-x;
+      background-size: contain;
+      z-index: 1;
+    }
     @media (max-width: 600px) {
-      header { padding: 32px 8px 16px 8px; }
-      main { padding: 0 8px 32px 8px; }
+      .container { padding: 12px; }
+      .hero h1 { font-size: 2rem; }
+      .hero img { width: 90px; height: 90px; }
     }
   </style>
 </head>
 <body>
-  <header>
+  <section class="hero">
     <img src="assets/img/ProfileIMG.jpg" alt="Ryan Mostert">
     <h1>Ryan Mostert</h1>
-    <div class="subtitle">Software Engineer &middot; Web & Mobile Developer</div>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/ryan-mostert-46047432b/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/RyanMostert" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="mailto:ramostert1@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <p>🚀 Software Engineer | Web & Mobile Developer | Creative Technologist</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/ryan-mostert-46047432b/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/RyanMostert" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+      <a href="mailto:ramostert1@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
-  </header>
-  <main>
+    <div class="wave"></div>
+  </section>
+  <div class="container">
     <section>
-      <h2>About</h2>
+      <h2>About Me</h2>
       <p>
-        BSc in Information Technology (Software Engineering) from Eduvos University. I enjoy building web and mobile applications, collaborating with teams, and learning new technologies. My strengths are communication, collaboration, and a strong aptitude for learning.
+        Hi! I'm Ryan, a passionate software engineer with a BSc in Information Technology (Software Engineering) from Eduvos University. I love building things that make a difference, from web apps to mobile experiences. My strengths are creative problem-solving, teamwork, and a hunger for learning.
       </p>
     </section>
     <section>
@@ -129,14 +187,15 @@
     </section>
     <section>
       <h2>Projects</h2>
-      <ul class="projects-list">
-        <li>
-          <strong>RyanPortfolio</strong>:
-          <a class="project-link" href="https://ryanmostert.github.io/RyanPortfolio/" target="_blank" rel="noopener">Live</a>
-        </li>
-        <li><strong>Web Applications & e-Commerce</strong></li>
-        <li><strong>Mobile Application</strong></li>
-      </ul>
+      <div class="project-card">
+        <strong>RyanPortfolio</strong>: My CV website (<a class="project-link" href="https://ryanmostert.github.io/RyanPortfolio/" target="_blank" rel="noopener">Live</a>)
+      </div>
+      <div class="project-card">
+        <strong>Web Applications & e-Commerce</strong>: Real-time communication app, e-commerce platform, and more.
+      </div>
+      <div class="project-card">
+        <strong>Mobile Application</strong>: Budget and savings tracker.
+      </div>
     </section>
     <section>
       <h2>Education</h2>
@@ -150,14 +209,15 @@
         <li>AZ-900: Microsoft Azure Fundamentals Exam Prep (SEP 2024)</li>
       </ul>
     </section>
-    <section>
+    <section class="fun-facts">
       <h2>Fun Facts</h2>
       <ul>
         <li>Rugby, hockey, cricket, and athletics enthusiast</li>
         <li>Enjoys boxing, kickboxing, and MMA</li>
+        <li>Always up for a new challenge!</li>
       </ul>
     </section>
-  </main>
+  </div>
   <script src="https://kit.fontawesome.com/6c63ff.js" crossorigin="anonymous"></script>
 </body>
 </html>
